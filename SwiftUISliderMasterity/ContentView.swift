@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var age: Double = 18
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+            Text("Selected Age - \(age, specifier: "%.0f")")
+            Slider(value: $age, in: 1...120) {
+                Text("Select Age")
+            } minimumValueLabel: {
+                Text("Min")
+            } maximumValueLabel: {
+                Text("Max")
+            }
+
         }
-        .padding()
     }
 }
 
